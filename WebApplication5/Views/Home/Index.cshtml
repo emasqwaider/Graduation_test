@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Student>
+
+
+<div class="row">
+
+    <div class="table-responsive">
+
+
+        <table class="table table-striped">
+
+            <thead >
+                <tr>
+                    <th>#</th>
+                    <th>Id</th>
+                    <th>Name</th>
+                    <th>password</th>
+                </tr>
+
+            </thead>
+
+            <tbody>
+                @foreach (var item in Model.Select((student, index) => new { student, index }))
+                {
+                    <tr>
+                        <td>@(item.index + 1)</td> <!-- Correct numbering -->
+                        <td>@item.student.Id</td>
+                        <td>@item.student.stuName</td>
+                        <td>@item.student.stuPass</td>
+                    </tr>
+                }
+
+                </tbody>
+
+            </table>
+
+        </div>
+
+    </div>
